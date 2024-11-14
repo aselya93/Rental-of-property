@@ -13,11 +13,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: "Users", key: "id" },
+        onDelete: "CASCADE",
       },
       renta_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: "Renta", key: "id" },
+        onDelete: "CASCADE",
       },
       createdAt: {
         type: Sequelize.DATE,
