@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import axiosInstance from "../axiosInstance";
+
 
 function Nav() {
     return (
