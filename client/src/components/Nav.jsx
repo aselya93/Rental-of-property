@@ -34,6 +34,13 @@ function Nav({user}) {
               </li>
               </>)}
 
+              {user.isAdmin === true && (
+              <>
+              <li className="nav-item">
+                  <Link className="nav-link" aria-disabled="true"> Клиенты </Link>
+              </li>
+              </>)}
+
               {user && (
                 <>
                     <li className="nav-item">
