@@ -1,64 +1,30 @@
-const bcrypt = require('bcrypt');
-const ge
+const bcrypt = require("bcrypt");
 const { User } = require("../db/models");
-const generateTokens = require('../utils/generateTokens');
+const generateTokens = require("../utils/generateTokens");
 
 class AuthService {
   static async authenticateUser(email, password) {
-    try {
-    // делаем валидацию полученных данных
-    if (email.trim() === "" || password.trim() === "") {
-      res.status(400).send("Заполни все поля!");
-      return;
+    const user = await User.findOne({ where: { email } });
+    if (!user) {
+      throw new Error("Пользователь не найден");
     }
 
-    // ищем пользователя по почте
-    const existingUser = await User.findOne({
-      where: {
-        email,
-      },
-    });
-
-    // если такой почты нет в БД, то выдаем ошибку
-    if (!existingUser) {
-      res.status(400).send("Такого пользователя нет!");
+    const isCorrectPassword = await bcrypt.compare(password, user.password);
+    if (!isCorrectPassword) {
+      throw new Error("Неверный пароль");
     }
 
-    const isCorrectedPassword = await bcrypt.compare(password, existingUser.password);
-
-    const targetUser = existingUser.get();
+    const targetUser = user.get();
     delete targetUser.password;
 
-    if(isCorrectedPassword) {
-        const{acessToken, refreshToken} = generateTokens({
-            user: targetUser
-        });
-
-        res.cookie('refreshToken', refreshToken, {
-            httpOnly: true,
-            maxAge: 1000*60*60*24
-        });
-
-        res.status(200).json({user: targetUser, acessToken: acessToken})
-    } else {
-        res
-            .clearCockie('refreshToken')
-            .status(400)
-            .json({message: 'Вы ввели некорректный email или пароль'});
-    }
-    } catch (error) {
-        res
-            .clearCockie('refreshToken')
-            .status(500)
-            .json({message: error.message});
+    const { accessToken, refreshToken } = generateTokens({ user: targetUser });
+    return { user: targetUser, accessToken, refreshToken };
   }
 
-  
-
-  static async aaa(email, password) {
-}
+  static async refreshTokens(user) {
+    const { accessToken, refreshToken } = generateTokens({ user });
+    return { accessToken, refreshToken };
   }
 }
 
 module.exports = AuthService;
-
