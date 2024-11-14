@@ -20,14 +20,15 @@ function Nav({user}) {
                       <li><a className="dropdown-item" href="#">Separated link</a></li>
                     </ul>
               </li>
-              <li className="nav-item">
-                  <Link className="nav-link" href="#">Link</Link>
-              </li>
-              <li className="nav-item">
-                  <Link className="nav-link disabled" aria-disabled="true">Disabled</Link>
-              </li>
+             
               {!user && (
               <>
+              <li className="nav-item">
+                  <Link className="nav-link" aria-disabled="true">Избранное ❤️ </Link>
+              </li>
+              <li className="nav-item">
+                <span className="nav-link disabled">Привет, {user.name}</span>
+              </li>
               <li className="nav-item">
                 <button type='button' className='btn btn-danger'>Выйти</button>
               </li>
