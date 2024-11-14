@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "./Nav";
 import { Outlet } from "react-router-dom";
+import Footer from "./Footer";
 
 function Layout({user, setUser}) {
   return (
@@ -9,6 +10,7 @@ function Layout({user, setUser}) {
       <section className="container mt-5">
         <Outlet />
       </section>
+      <Footer/>
     </>
   );
 }

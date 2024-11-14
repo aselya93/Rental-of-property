@@ -4,10 +4,12 @@ import axiosInstance from "../axiosInstance";
 
 function Nav({user}) {
     return (
-        <div>
+        <header>
           <ul className="nav nav-pills container gap-3">
-              <li className="nav-item">
-                  <Link to={'/'} className="nav-link active" aria-current="page" href="#">Active</Link>
+              <li className="nav-item w-25">
+                <Link to={'/'} className="nav-link " >
+                    <img src="https://cdn-icons-png.flaticon.com/512/6676/6676674.png" alt="Active" className="img-fluid w-25" />
+                </Link>
               </li>
               <li className="nav-item dropdown">
                   <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</Link>
@@ -41,11 +43,8 @@ function Nav({user}) {
                     </li>
                 </>
               )}
-
-
-              
           </ul>
-        </div>
+        </header>
     );
 }
 
