@@ -1,23 +1,25 @@
-const AuthService = require('../services/Auth.service');
- 
+const AuthService = require("../services/Auth.service");
 
 exports.loginController = async (req, res) => {
   const { email, password } = req.body;
   try {
-    if (!email || !password || email.trim() === '') {
-      return res.status(400).json({ message: 'Некорректные данные' });
+    if (!email || !password || email.trim() === "") {
+      return res.status(400).json({ message: "Некорректные данные" });
     }
 
-     const { user, accessToken, refreshToken } = await AuthService.authenticateUser(email, password);
+    const { user, accessToken, refreshToken } = await AuthService.authenticateUser(email, password);
 
-    res.cookie('refreshToken', refreshToken, {
+    res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24,
     });
 
     res.status(200).json({ user, accessToken });
   } catch (error) {
-    res.clearCookie('refreshToken').status(400).json({ message: 'ffkfkfkf' });
+    res
+      .clearCookie("refreshToken")
+      .status(400)
+      .json({ message: message.error });
   }
 };
 
@@ -26,17 +28,17 @@ exports.refreshController = async (req, res) => {
     const user = res.locals.user;
     const { accessToken, refreshToken } = await AuthService.refreshTokens(user);
 
-    res.cookie('refreshToken', refreshToken, {
+    res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 3600 * 6 * 60 * 24,
     });
 
     res.status(200).json({ user, accessToken });
   } catch (error) {
-    res.status(401).json({ user: {}, accessToken: '' });
+    res.status(401).json({ user: {}, accessToken: "" });
   }
 };
 
 exports.logoutController = (req, res) => {
-  res.clearCookie('refreshToken').json({ message: 'clearCookie' });
+  res.clearCookie("refreshToken").json({ message: "clearCookie" });
 };
