@@ -1,9 +1,8 @@
 const router = require('express').Router();
-const { User } = require('../db/models');
-const path = require('path');
-const bcrypt = require('bcrypt');
+const apiAuthRoutes = require('./api.auth.routes');
 
-const saltRounds = 10;
+router.use('/auth', apiAuthRoutes)
+
 
 
 
