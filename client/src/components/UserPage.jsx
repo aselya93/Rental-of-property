@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Auth(props) {
+function UserPage(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Auth(props) {
     );
 }
 
-export default Auth;
+export default UserPage;
