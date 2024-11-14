@@ -4,11 +4,13 @@ const generateTokens = require("../utils/generateTokens");
 
 class AuthService {
   static async authenticateUser(email, password) {
+   
     const user = await User.findOne({ where: { email } });
+    
     if (!user) {
       throw new Error("Пользователь не найден");
     }
-
+    
     const isCorrectPassword = await bcrypt.compare(password, user.password);
     if (!isCorrectPassword) {
       throw new Error("Неверный пароль");
@@ -18,6 +20,7 @@ class AuthService {
     delete targetUser.password;
 
     const { accessToken, refreshToken } = generateTokens({ user: targetUser });
+
     return { user: targetUser, accessToken, refreshToken };
   }
 
