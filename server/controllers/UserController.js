@@ -14,7 +14,7 @@ exports.createUserController = async (req, res) => {
   }
 };
 
-exports.deleteRentaController = async (req, res) => {
+exports.deleteUserController = async (req, res) => {
   const { id } = req.params;
   try {
     const countDeleteUserCards = await UserService.deleteUser(id);

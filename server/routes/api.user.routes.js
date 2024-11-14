@@ -1,14 +1,9 @@
 const verifyRefreshToken = require("../middleware/verifyRefreshToken");
 const router = require("express").Router();
-const {
-  loginController,
-  refreshController,
-  logoutController,
-} = require("../controllers/AuthController");
 
 const {
   createUserController,
-  deleteRentaController,
+  deleteUserController,
   getAllUserController,
   updateUserController,
 } = require("../controllers/UserController");
@@ -16,7 +11,7 @@ const {
 router
   .post("/", createUserController)
   .get("/", getAllUserController)
-  .delete("/:id", deleteRentaController)
+  .delete("/:id", deleteUserController)
   .put("/:id", updateUserController);
 
 module.exports = router;
