@@ -18,7 +18,7 @@ function Auth({setUser}) {
         }); 
         setUser(data.user);
         setAccessToken(data.accessToken)
-        navigate('/users')
+        navigate('/')
        } catch (error){
           alert(error.message);
        }

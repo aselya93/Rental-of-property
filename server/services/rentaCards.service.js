@@ -38,10 +38,10 @@ class RentaService {
       throw new Error(error.message);
     }
   }
-  static async deleteRentaCard(id, user_id) {
+  static async deleteRentaCard(id) {
     try {
       const deleteRentaCard = await Renta.destroy({
-        where: { id, user_id: 1 },
+        where: { id },
       });
       return deleteRentaCard;
     } catch (error) {

@@ -9,6 +9,7 @@ import RentaCard from './components/Renta/RentaCard';
 import RentaFormAdd from './components/Renta/RentaFormAdd';
 import RentaUpdate from './components/Renta/RentaUpdate';
 import RentaPage from './components/Renta/RentaPage';
+import axiosInstance, { setAccessToken } from "./axiosInstance";
 
 
 function App() {
@@ -40,16 +41,16 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/users",
-          element: <UserPage />,
-        },
-        {
           path: "/registration",
           element: <Registration setUser={setUser} />,
         },
         {
           path: "/authorization",
           element: <Auth setUser={setUser} />,
+        },
+        {
+          path: "/renta",
+          element: <RentaPage user={user}/>,
         },
       ],
     },

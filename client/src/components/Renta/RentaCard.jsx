@@ -4,10 +4,9 @@ import axiosInstance from '../../axiosInstance';
 import RentaUpdate from './RentaUpdate';
 
 
-function RentaCard({renta, setRenta}) {
+function RentaCard({renta, setRenta, user}) {
 
 const [view, setView] = useState(false); 
-const { user } = props;
 
 const handleView = () => {
   setView((prev) => !prev);
@@ -33,10 +32,10 @@ const handleDelete = async () => {
         alt="photo"
         className="rentaImage"
       />
-      {user?.id === renta.userId ? (
+      {user.isAdmin ? (
         <button onClick={handleDelete}>Удалить</button>
       ) : null}
-      {user?.id === renta.userId ? (
+      {user.isAdmin ? (
         <button
           style={{ background: `${view ? "red" : "green"}`, color: "purple" }}
           onClick={handleView}

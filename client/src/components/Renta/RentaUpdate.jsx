@@ -10,7 +10,7 @@ const [price, setPrice] = useState(renta.price)
 const [description, setDescription] = useState(renta.description)
 const [photo, setPhoto] = useState(renta.photo)
 const [location, setLocation] = useState(renta.location)
-
+const [error, setError] = useState(null);
 
 
 const onHandleUpdate = async (el) => {
