@@ -2,7 +2,7 @@ const { json } = require("sequelize");
 const RentaService = require("../services/rentaCards.service")
 
 exports.createRentaController = async(req,res) => {
-    const {category_id, title, price, description, photo, location, points_latitude, points_longitude} = req.body;
+    const {category_id, title, price, description, photo, location} = req.body;
     try {
         const renta = await RentaService.createRentaCard({
             category_id, 
@@ -11,8 +11,6 @@ exports.createRentaController = async(req,res) => {
             description, 
             photo, 
             location, 
-            points_latitude, 
-            points_longitude,
     
         });
         res.status(201).json({ message: "success", renta });
@@ -43,7 +41,6 @@ exports.getAllRentaController = async (req, res) => {
 }
 
 exports.updateRentaCardController = async(req, res) => {
-    const {category_id, title, price, description, photo, location, points_latitude, points_longitude} = req.body;
     const { id } = req.params;
     try {
         const countUpdate = await RentaService.updateRenta(req.body, id)

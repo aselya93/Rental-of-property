@@ -20,8 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.TEXT,
       photo: DataTypes.TEXT,
       location: DataTypes.TEXT,
-      points_latitude: DataTypes.INTEGER,
-      points_longitude: DataTypes.INTEGER,
     },
     {
       sequelize,

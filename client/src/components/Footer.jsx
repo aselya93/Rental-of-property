@@ -10,6 +10,8 @@ function Footer() {
                         <h5>Контакты</h5>
                         <p>Адрес: город Джаваскриптбург, ул. Реактов, 123</p>
                         <p>Email: <a href="mailto:info@example.com" className="text-white">info@example.com</a></p>
+
+                        <p> © 2024 Stack Exchange Inc</p>
                     </div>
                 </div>
             </div>

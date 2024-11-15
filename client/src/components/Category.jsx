@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom'
 
 function Category() {
 
-    const [categorys, setCategory] = useState("");
+    const [categorys, setCategory] = useState([
+        {
+            id: 1,
+            name: 'Комната'
+        },
+        {
+            id: 2,
+            name: 'Квартира'
+        },
+        {
+            id: 3,
+            name: 'Дома'
+        }
+    ]);
 
     return (
         <>

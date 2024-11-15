@@ -9,7 +9,8 @@ import RentaCard from './components/Renta/RentaCard';
 import RentaFormAdd from './components/Renta/RentaFormAdd';
 import RentaUpdate from './components/Renta/RentaUpdate';
 import RentaPage from './components/Renta/RentaPage';
-import axiosInstance from "./axiosInstance";
+import axiosInstance, { setAccessToken } from "./axiosInstance";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -50,6 +51,10 @@ function App() {
         {
           path: "/authorization",
           element: <Auth setUser={setUser} />,
+        },
+        {
+          path: "/renta",
+          element: <RentaPage user={user}/>,
         },
       ],
     },
