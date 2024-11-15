@@ -35,9 +35,9 @@ class UserService {
       throw new Error(error.message);
     }
   }
-  static async findUser(name) {
+  static async findUser(email) {
     try {
-      const findedUser = await User.findOne({ where: { name } });
+      const findedUser = await User.findOne({ where: { email } });
       return findedUser;
     } catch (error) {
       throw new Error(error.message);
