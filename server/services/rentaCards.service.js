@@ -19,8 +19,6 @@ class RentaService {
     description,
     photo,
     location,
-    points_latitude,
-    points_longitude,
   }) {
     try {
       const renta = await Renta.create({
@@ -30,8 +28,6 @@ class RentaService {
         description,
         photo,
         location,
-        points_latitude,
-        points_longitude,
       });
       return renta;
     } catch (error) {
@@ -48,9 +44,14 @@ class RentaService {
       throw new Error(error.message);
     }
   }
-  static async updateRenta(data, id) {
+  static async updateRenta(
+    { category_id, title, price, description, photo, location }, id
+  ) {
     try {
-      const [countUpdated] = await Renta.update(data, { where: { id } });
+      const [countUpdated] = await Renta.update(
+        { category_id, title, price, description, photo, location },
+        { where: { id } }
+      );
       return countUpdated;
     } catch (error) {
       throw new Error(error.message);

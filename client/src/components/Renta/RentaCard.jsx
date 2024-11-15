@@ -40,7 +40,7 @@ const handleDelete = async () => {
           style={{ background: `${view ? "red" : "green"}`, color: "purple" }}
           onClick={handleView}
         >
-          {view ? "закрыть" : "показать"}
+          {view ? "Закрыть" : "Редактировать"}
         </button>
       ) : null}
       {view && <RentaUpdate renta={renta} setRenta={setRenta} />}

@@ -34,14 +34,6 @@ module.exports = {
         allowNull: true,
         type: Sequelize.TEXT,
       },
-      points_latitude: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-      },
-      points_longitude: {
-        allowNull: true,
-        type: Sequelize.INTEGER,
-      },
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("NOW"),
