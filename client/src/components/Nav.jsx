@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 import Category from "./Category";
 
 function Nav({ user, setUser }) {
+  const navigate = useNavigate()
   const logout = async () => {
     const res = await axiosInstance.delete("/auth/logout");
+    navigate('/') 
     if (res.status === 200) {
       setUser(null);
     }

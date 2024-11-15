@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance, {setAccessToken} from "../axiosInstance";
 
 function Auth({setUser}) {
-  const [email, setEmail] = useState ('testtest@mail.ru');
-  const [password, setPassword] = useState ('123');
+  const [email, setEmail] = useState ('');
+  const [password, setPassword] = useState ('');
   const navigate = useNavigate();
 
     async function authUser(event) {
@@ -18,7 +18,7 @@ function Auth({setUser}) {
         }); 
         setUser(data.user);
         setAccessToken(data.accessToken)
-        navigate('/')
+        navigate('/renta')
        } catch (error){
           alert(error.message);
        }
