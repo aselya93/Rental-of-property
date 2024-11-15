@@ -40,6 +40,10 @@ function App() {
           path: "/",
           element: <Home />,
         },
+        // {
+        //   path: "/users",
+        //   element: <UserPage />,
+        // },
         {
           path: "/registration",
           element: <Registration setUser={setUser} />,
