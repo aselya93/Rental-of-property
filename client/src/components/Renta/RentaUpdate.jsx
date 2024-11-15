@@ -69,7 +69,7 @@ const onHandleUpdate = async (el) => {
           />
           <input
             type="text"
-            placeholder="Добавить название"
+            placeholder="Название"
             maxLength={40}
             value={title}
             onChange={(el) => setTitle(el.target.value)}
@@ -77,7 +77,7 @@ const onHandleUpdate = async (el) => {
           />
           <input
             type="text"
-            placeholder="Добавить цену"
+            placeholder="Цена"
             maxLength={20}
             value={price}
             onChange={(e) => setPrice(e.target.value)}
@@ -85,7 +85,7 @@ const onHandleUpdate = async (el) => {
           />
           <input
             type="text"
-            placeholder="Добавить категорию"
+            placeholder="Категория"
             maxLength={40}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -93,7 +93,7 @@ const onHandleUpdate = async (el) => {
           />
           <input
             type="url"
-            placeholder="Добавить локацию"
+            placeholder="Локация"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             className="update-form__input"
