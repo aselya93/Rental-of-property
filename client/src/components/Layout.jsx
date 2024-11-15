@@ -7,7 +7,7 @@ function Layout({user, setUser}) {
   return (
     <>
       <Nav user={user} setUser={setUser} />
-      <section className="container mt-5 vh-100">
+      <section className="container mt-5">
         <Outlet />
       </section>
       <Footer/>

@@ -15,17 +15,17 @@ function RentaFormAdd({ setRenta }) {
     const onHandleSubmit = async (el) => {
         try {
             el.preventDefault()
-            if(
-                category_id.trim() === '' ||
-                title.trim() === '' ||
-                price.trim() === '' ||
-                description.trim() === '' ||
-                photo.trim() === '' ||
-                location.trim() === '' 
-            ) {
-                setError("Заполни по-братски, да !!!")
-                return;
-            }
+            // if(
+            //     category_id.trim() === '' ||
+            //     title.trim() === '' ||
+            //     price.trim() === '' ||
+            //     description.trim() === '' ||
+            //     photo.trim() === '' ||
+            //     location.trim() === '' 
+            // ) {
+            //     setError("Заполни по-братски")
+            //     return;
+            // }
             const response = await axiosInstance.post(`/renta/`, {
                 category_id,
                 title,

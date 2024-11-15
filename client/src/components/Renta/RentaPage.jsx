@@ -19,17 +19,6 @@ function RentaPage({user}) {
     fetchData();
   }, []);
 
-  // const getAllRentaCards = async () => {
-  //   try {
-  //     const response = await axiosRequest.get("/renta");
-  //     if (response.status === 200) {
-  //       setRenta(response.data.renta);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   console.log(renta);
   
 
