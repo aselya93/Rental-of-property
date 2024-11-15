@@ -20,7 +20,7 @@ function Registration({ setUser }) {
       if (status === 201) {
         setUser(data.user);
         setAccessToken(data.accessToken)
-        navigate("/");
+        navigate("/renta");
         return;
       }
     } catch (error) {
