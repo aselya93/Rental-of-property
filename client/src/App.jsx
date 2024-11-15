@@ -5,6 +5,7 @@ import Home from './components/Home';
 import UserPage from './components/UserPage';
 import Registration from './components/Registration';
 import Auth from './components/Auth';
+import Favorites from './components/Favorites';
 
 
 function App() {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/authorization",
         element: <Auth setUser={setUser} />,
+      },
+      {
+        path: "/favorites",
+        element: <Favorites />,
       },
     ],
   },
