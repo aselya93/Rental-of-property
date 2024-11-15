@@ -19,8 +19,6 @@ class RentaService {
     description,
     photo,
     location,
-    points_latitude,
-    points_longitude,
   }) {
     try {
       const renta = await Renta.create({
@@ -30,27 +28,30 @@ class RentaService {
         description,
         photo,
         location,
-        points_latitude,
-        points_longitude,
       });
       return renta;
     } catch (error) {
       throw new Error(error.message);
     }
   }
-  static async deleteRentaCard(id, user_id) {
+  static async deleteRentaCard(id) {
     try {
       const deleteRentaCard = await Renta.destroy({
-        where: { id, user_id: 1 },
+        where: { id },
       });
       return deleteRentaCard;
     } catch (error) {
       throw new Error(error.message);
     }
   }
-  static async updateRenta(data, id) {
+  static async updateRenta(
+    { category_id, title, price, description, photo, location }, id
+  ) {
     try {
-      const [countUpdated] = await Renta.update(data, { where: { id } });
+      const [countUpdated] = await Renta.update(
+        { category_id, title, price, description, photo, location },
+        { where: { id } }
+      );
       return countUpdated;
     } catch (error) {
       throw new Error(error.message);

@@ -1,12 +1,14 @@
 "use strict";
 
+const bcrypt = require("bcrypt");
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert("Users", [
       {
         name: "Administrator",
         email: "admin@example.com",
-        password: "$2y$10$bk8x8f8nEsREQaeCU5hXWO0X28w5pz/TzHUcLAlwZFkca9ejSZb0q", // не понятно что с хешем и как их закинуть сразу хешированными
+        password: await bcrypt.hash('123', 8), // не понятно что с хешем и как их закинуть сразу хешированными
         isAdmin: true,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -14,7 +16,7 @@ module.exports = {
       {
         name: "Алиса Иванова",
         email: "alisa.ivanova@example.com",
-        password: "$2y$10$F6jmeglT141uK0CggQkKp.upg.im/muw/pJZeHcBjkYSGHMVLFF6W",
+        password: await bcrypt.hash('123', 8),
         isAdmin: false,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -22,7 +24,7 @@ module.exports = {
       {
         name: "Борис Смирнов",
         email: "boris.smirnov@example.com",
-        password: "$2y$10$iwx634RDpNVkzKieayDqQOaguCjQXtJkSfA74P9ofyO/09j5bwyoa",
+        password: await bcrypt.hash('123', 8),
         isAdmin: false,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -30,7 +32,7 @@ module.exports = {
       {
         name: "Виктория Кузнецова",
         email: "viktoria.kuznetsova@example.com",
-        password: "$2y$10$o.k8yp08pOzjQtzKZZw9RuRPKhPZ/TApn//0eQmMmCUclOKI.Hx5W",
+        password: await bcrypt.hash('123', 8),
         isAdmin: false,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -38,7 +40,7 @@ module.exports = {
       {
         name: "Дмитрий Соколов",
         email: "dmitry.sokolov@example.com",
-        password: "$2y$10$2ImF13HhjlxasyD3HrxR5.rfzs7GnJxThUdmwEjbBw4.NlTlStEty",
+        password: await bcrypt.hash('123', 8),
         isAdmin: false,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -46,7 +48,7 @@ module.exports = {
       {
         name: "Екатерина Попова",
         email: "ekaterina.popova@example.com",
-        password: "$2y$10$vy2iCzhgBCEed7dfSSxeau8su9V8Lxgixdv3cx9arkxTVsiqPYdnu",
+        password: await bcrypt.hash('123', 8),
         isAdmin: false,
         createdAt: new Date(),
         updatedAt: new Date(),
