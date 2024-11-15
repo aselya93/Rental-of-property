@@ -11,7 +11,7 @@ function Footer() {
                         <p>Адрес: город Джаваскриптбург, ул. Реактов, 123</p>
                         <p>Email: <a href="mailto:info@example.com" className="text-white">info@example.com</a></p>
 
-                        <p> © 2024 Stack Exchange Inc</p>
+                        <p> © 2024 Куда я жмав Inc</p>
                     </div>
                 </div>
             </div>

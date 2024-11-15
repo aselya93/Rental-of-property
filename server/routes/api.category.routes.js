@@ -1,6 +1,6 @@
-const getAllCategoryController = require ('../controllers/CategoryController')
-const router = require('express').Router()
+// const getAllCategoryController = require ('../controllers/CategoryController')
+// const router = require('express').Router()
 
-router.get('/', getAllCategoryController )
+// router.get('/', getAllCategoryController)
 
-module.exports = router
+// module.exports = router
