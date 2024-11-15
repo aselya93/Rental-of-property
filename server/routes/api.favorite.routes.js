@@ -9,9 +9,10 @@ const {
 } = require("../controllers/FavoritesController");
 
 router
+  // .get("/:id", getUserFavoritesController)
   .post("/", createFavoritesController)
   .get("/", getAllFavoritesController)
   .delete("/:id", deleteFavoritesController)
-  .get("/:id", getUserFavoritesController);
+
 
 module.exports = router;
