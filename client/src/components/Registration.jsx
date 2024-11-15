@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom'
-
-
 import React from 'react';
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../axiosInstance';
 
 function Registration() {
 
@@ -11,18 +10,16 @@ function Registration() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    async function createUser(event) {
-
+    const createUser = async (event) => {
         event.preventDefault();
 
-        const data = await axiosInstance.post('/users', {
+        const data = await axiosInstance.post('/user', {
             name,
             email,
             password,
         })
-    
-        navigate ('/userslist')
-
+        
+        return 
     }
 
     return (

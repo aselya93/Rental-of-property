@@ -1,4 +1,5 @@
 const UserService = require("../services/User.service");
+const bcrypt = require('bcrypt')
 
 exports.createUserController = async (req, res) => {
   const { name, email, password } = req.body;
@@ -6,7 +7,7 @@ exports.createUserController = async (req, res) => {
     const user = await UserService.createUser({
       name,
       email,
-      password,
+      password: await bcrypt.hash(password, 10),
     });
     res.status(201).json({ message: "success", user });
   } catch (error) {

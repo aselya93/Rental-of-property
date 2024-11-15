@@ -4,16 +4,16 @@ class UserService {
   static async getAllUsers() {
     try {
       const users = await User.findAll({
-        order: [["name", "ASC"]],
+        order: [["id", "ASC"]],
       });
       return users;
     } catch (error) {
       throw new Error(error.message);
     }
   }
-  static async createUser(data) {
+  static async createUser({name, email, password}) {
     try {
-      const newUser = await User.create(data);
+      const newUser = await User.create({name, email, password});
       return newUser;
     } catch (error) {
       throw new Error(error.message);
