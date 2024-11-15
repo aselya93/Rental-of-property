@@ -67,7 +67,7 @@ function Nav({ user, setUser }) {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" aria-disabled="true">
-                    Объявления
+                    Объявления 
                   </Link>
                 </li>
               </>
