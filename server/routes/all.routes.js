@@ -1,8 +1,14 @@
-const router = require("express").Router();
-const apiAuthRoutes = require("./api.auth.routes");
+const router = require('express').Router();
+const apiAuthRoutes = require('./api.auth.routes');
+const apiUserRoutes = require('./api.user.routes');
 const apiRentaRoutes = require("./api.renta.routes");
 
-router.use("/auth", apiAuthRoutes);
+
+router.use('/auth', apiAuthRoutes)
+router.use('/user', apiUserRoutes)
 router.use("/renta", apiRentaRoutes);
 
-module.exports = router;
+// router.use('*', )
+
+module.exports = router
+

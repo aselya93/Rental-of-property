@@ -17,7 +17,7 @@ exports.createRentaController = async(req,res) => {
         });
         res.status(201).json({ message: "success", renta });
     } catch (error) {
-        res.status(500).json({ message: error.message, book: {} });
+        res.status(500).json({ message: error.message, renta: {} });
     }
 }
 exports.deleteRentaController = async (req, res) => {
