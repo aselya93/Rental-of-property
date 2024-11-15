@@ -5,15 +5,15 @@ const {
     updateRentaCardController,
 } = require("../controllers/RentaController");
 
-const varifyAccessToken = require("../middleware/varifyAccessToken")
+const verifyAccessToken = require("../middleware/verifyAccessToken")
 
 const router = require('express').Router()
 
 router
 .get('/', getAllRentaController)
-.post('/', varifyAccessToken, createRentaController)
-.delete('/:id', varifyAccessToken, deleteRentaController)
-.put('/:id', varifyAccessToken, updateRentaCardController)
+.post('/', verifyAccessToken, createRentaController)
+.delete('/:id', verifyAccessToken, deleteRentaController)
+.put('/:id', verifyAccessToken, updateRentaCardController)
 
 
 module.exports = router;
