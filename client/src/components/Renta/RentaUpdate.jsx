@@ -14,17 +14,7 @@ function RentaUpdate({ renta, setRenta }) {
   const onHandleUpdate = async (e) => {
     try {
       e.preventDefault();
-      // if (
-      //   category_id.trim() === "" ||
-      //   title.trim() === "" ||
-      //   price.trim() === "" ||
-      //   description.trim() === "" ||
-      //   photo.trim() === "" ||
-      //   location.trim() === ""
-      // ) {
-      //   setError("Заполни по-братски, да");
-      //   return;
-      // }
+   
       
       const {data} = await axiosInstance.put(`/renta/${renta.id}`, {
         category_id,

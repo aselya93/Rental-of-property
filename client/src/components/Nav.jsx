@@ -31,19 +31,24 @@ function Nav({ user, setUser }) {
             {/* Условный рендеринг для администратора */}
             {user.isAdmin ? (
               <>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" aria-disabled="true">
                     Клиенты
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
-                  <Link className="nav-link" aria-disabled="true">
+                  <Link to={"/renta"} className="nav-link" aria-disabled="true">
                     Объявления 
                   </Link>
                 </li>
               </>
             ) : (
               <>
+              <li className="nav-item">
+                  <Link to={"/renta"} className="nav-link" aria-disabled="true">
+                    Объявления 
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link className="nav-link" aria-disabled="true">
                     Избранное ❤️
