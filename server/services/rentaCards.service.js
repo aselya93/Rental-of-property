@@ -58,7 +58,7 @@ class RentaService {
   }
   static async findRentaByName(name) {
     try {
-      const renta = await Renta.findByPk({ where: { name } });
+      const renta = await Renta.findOne({ where: { name } });
       return renta;
     } catch (error) {
       throw new Error(error.message);

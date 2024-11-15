@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Layout  from './components/Layout';
 import Home from './components/Home';
-import RentaPage from './components/Renta/RentaPage';
 import Registration from './components/Registration';
 import Auth from './components/Auth';
-
+import RentaCard from './components/Renta/RentaCard';
+import RentaFormAdd from './components/Renta/RentaFormAdd';
+import RentaUpdate from './components/Renta/RentaUpdate';
+import RentaPage from './components/Renta/RentaPage';
 
 function App() {
 const [user, setUser] = useState({})

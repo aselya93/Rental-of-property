@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { axiosInstance } from '../../axiosInstance'
+import axiosInstance  from '../../axiosInstance'
 
 
 function RentaUpdate({renta, setRenta}) {
@@ -15,7 +15,7 @@ const [location, setLocation] = useState(renta.location)
 
 const onHandleUpdate = async (el) => {
     try {
-        el.preventDedault()
+        el.preventDefault()
         if(
             category_id.trim() === '' ||
             title.trim() === '' ||
@@ -38,7 +38,7 @@ const onHandleUpdate = async (el) => {
         if(response.status === 200) {
             setRenta((prev) => 
             prev.map((el) => 
-            el.id === response.data.renta.id ? responce.data.renta : el
+            el.id === response.data.renta.id ? response.data.renta : el
         )
     )
     setError(null)
@@ -105,4 +105,4 @@ const onHandleUpdate = async (el) => {
     );
 }
 
-export default RentaForAdmin;
+export default RentaUpdate;

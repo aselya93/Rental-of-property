@@ -1,19 +1,20 @@
-import React from 'react';
-import { axiosInstance } from '../../axiosInstance'
+import React, {useState} from 'react';
+import  axiosInstance  from '../../axiosInstance'
 
 
-function RentaFormAdd({setRenta}) {
+function RentaFormAdd({ setRenta }) {
 
     const [category_id, setCategory_id] = useState('')
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState('')
     const [description, setDescription] = useState('')
-    // const [photo, setPhoto] = useState()
+   const [photo, setPhoto] = useState('')
     const [location, setLocation] = useState('')
+    const [error, setError] = useState(null);
 
     const onHandleSubmit = async (el) => {
         try {
-            el.preventDedault()
+            el.preventDefault()
             if(
                 category_id.trim() === '' ||
                 title.trim() === '' ||
@@ -25,7 +26,7 @@ function RentaFormAdd({setRenta}) {
                 setError("Заполни по-братски, да !!!")
                 return;
             }
-            const response = await axiosInstance.put(`/renta/`, {
+            const response = await axiosInstance.post(`/renta/`, {
                 category_id,
                 title,
                 price,
@@ -39,7 +40,7 @@ function RentaFormAdd({setRenta}) {
                 setTitle('');
                 setPrice('');
                 setDescription('');
-                // photo???
+                setPhoto('')
                 setLocation('')
                 return;                
             }
