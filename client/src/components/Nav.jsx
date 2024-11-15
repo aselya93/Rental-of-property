@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import axiosInstance from "../axiosInstance";
 
 function Nav({ user, setUser }) {
-
   const logout = async () => {
     const res = await axiosInstance.delete("/auth/logout");
     if (res.status === 200) {
       setUser(null);
     }
-  }
+  };
   return (
     <header>
       <ul className="nav nav-pills container gap-3">
@@ -59,18 +58,28 @@ function Nav({ user, setUser }) {
         {user ? (
           <>
             {/* Условный рендеринг для администратора */}
-            {user.isAdmin && (
+            {user.isAdmin ? (
+              <>
                 <li className="nav-item">
                   <Link className="nav-link" aria-disabled="true">
                     Клиенты
                   </Link>
                 </li>
-            )}
-            <li className="nav-item">
-              <Link className="nav-link" aria-disabled="true">
-                Избранное ❤️
-              </Link>
-            </li>
+                <li className="nav-item">
+                  <Link className="nav-link" aria-disabled="true">
+                    Объявления
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" aria-disabled="true">
+                    Избранное ❤️
+                  </Link>
+                </li>
+              </>
+            ) }
             <li className="nav-item">
               <span className="nav-link disabled">Привет, {user.name}</span>
             </li>
@@ -79,8 +88,6 @@ function Nav({ user, setUser }) {
                 Выйти
               </button>
             </li>
-
-            
           </>
         ) : (
           <>
@@ -100,6 +107,5 @@ function Nav({ user, setUser }) {
     </header>
   );
 }
-
 
 export default Nav;
