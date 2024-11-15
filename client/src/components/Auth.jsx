@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axiosInstance, {setAccessToken} from "../axiosInstance";
 
 function Auth({setUser}) {
-  // const [name, setName] = useState ('Alex');
-  const [email, setEmail] = useState ('alisa.ivanova@example.com');
-  const [password, setPassword] = useState ('pass123');
+  const [email, setEmail] = useState ('testtest@mail.ru');
+  const [password, setPassword] = useState ('123');
   const navigate = useNavigate();
 
     async function authUser(event) {

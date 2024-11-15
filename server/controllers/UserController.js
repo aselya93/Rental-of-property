@@ -1,14 +1,28 @@
 const UserService = require("../services/User.service");
+const bcrypt = require('bcrypt');
+const generateTokens = require("../utils/generateTokens");
+const jwtConfig = require("../config/jwtConfig");
 
 exports.createUserController = async (req, res) => {
   const { name, email, password } = req.body;
   try {
-    const user = await UserService.createUser({
-      name,
-      email,
-      password,
-    });
-    res.status(201).json({ message: "success", user });
+    let user = await UserService.findUser(email);
+    if (!user) {
+      user = await UserService.createUser({
+        name,
+        email,
+        password: await bcrypt.hash(password, 10),
+      });
+      delete user.password;
+      res.locals.user = user;
+      const {accessToken, refreshToken} = generateTokens({user})
+
+      return res.status(201).cookie(jwtConfig.refresh.type, refreshToken, {
+        httpOnly: true,
+        maxAge: jwtConfig.refresh.expiresIn,
+      }).json({ message: "success", user, accessToken });
+    }
+    res.status(400).send('Такой пользователь уже существует!')
   } catch (error) {
     res.status(500).json({ message: error.message, user: {} });
   }

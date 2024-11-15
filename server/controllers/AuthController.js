@@ -19,7 +19,7 @@ exports.loginController = async (req, res) => {
     res
       .clearCookie("refreshToken")
       .status(400)
-      .json({ message: message.error });
+      .json({ message: error.message });
   }
 };
 

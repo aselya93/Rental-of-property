@@ -5,6 +5,6 @@ const apiUserRoutes = require('./api.user.routes');
 router.use('/auth', apiAuthRoutes)
 router.use('/user', apiUserRoutes)
 
-
+// router.use('*', )
 
 module.exports = router
